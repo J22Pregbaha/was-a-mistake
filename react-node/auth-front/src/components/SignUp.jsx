@@ -1,16 +1,41 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
-function SignUp() {
+import Alert from "./Alert";
+
+function SignUp(props) {
 	const [fullName, setFullName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [isAuthor, setIsAuthor] = useState(false);
+	const [submitted, setSubmitted] = useState(false);
+	const [responseMessage, setResponseMessage] = useState("");
+
+	function resetForm() {
+		fullName === "" && email === "" && password === ""
+			? setResponseMessage("Please fill all entries")
+			: fullName === ""
+			? setResponseMessage("Please provide your full name")
+			: email === ""
+			? setResponseMessage("Please provide your email address")
+			: password === ""
+			? setResponseMessage("Please provide your password")
+			: props.submitInfo(fullName, email, password);
+
+		fullName !== "" && email !== "" && password !== "" && setSubmitted(true);
+	}
 
 	return (
 		<div className="text-center">
 			<main className="form-signin">
-				<form>
+				{responseMessage !== "" && <Alert type="warning" output={responseMessage} />}
+				<form 
+					method="post"
+					onSubmit={(e) => {
+						e.preventDefault();
+
+						resetForm();
+					}}>
 					<img className="mb-4" src="/logo192.png" alt="" width="72" height="57" />
 					<h1 className="h3 mb-3 fw-normal">Please sign up</h1>
 
@@ -45,8 +70,8 @@ function SignUp() {
 						<label>
 							<input 
 								type="checkbox"
-								checked={(e) => setIsAuthor(true)}
-								value={isAuthor} /> Remember me
+								onChange={() => setIsAuthor(!isAuthor)}
+								checked={isAuthor} /> Register as an author
 						</label>
 					</div>
 					<Link to="/sign-in">Sign In</Link>
@@ -54,6 +79,7 @@ function SignUp() {
 					<p className="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
 				</form>
 			</main>
+			{submitted && <Redirect to="/confirmMail" />}
 		</div>
 	);
 }
