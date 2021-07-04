@@ -14,19 +14,33 @@ function App() {
 
 	const sendEmail = async (fullName, email, password) => {
 		console.log(`Send Email to ${email}`);
-		const requestOptions = {
+
+		const signUpPostRequestOptions = {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({
+				name: fullName,
 				email: email,
-				subject: "Please confirm your email",
-				text: "Good day, \n\n Please, we would like you to confirm your e-mail by clicking the link below"
+				password: password
 			})
 		};
 
-		const response = await fetch("/mail/sendEmail", requestOptions);
-		const data = await response.json();
-		console.log("Email sent", data);
+		const signUpResponse = await fetch("/auth/signUp", signUpPostRequestOptions);
+		const signUpData = await signUpResponse.json();
+		if (signUpData.encrypted_key) {
+			const emailPostRequestOptions = {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					email: email,
+					subject: "Please confirm your email",
+					text: "Good day, \n\n Please, we would like you to confirm your e-mail by clicking the link below"
+				})
+			};
+			const response = await fetch("/mail/sendEmail", emailPostRequestOptions);
+			const data = await response.json();
+			console.log("Email sent", data);
+		}
 	}
 
 	return (
