@@ -2,7 +2,6 @@
 
 * [General Setup info](#general-setup-info)
 * [Technologies](#technologies)
-* [Features](#features)
 
 ## General info
 
@@ -11,6 +10,9 @@ It would be easier if you had three separate CLI tabs open.
 
 ```bash
 git clone https://github.com/J22Pregbaha/was-a-mistake.git
+```
+
+```bash
 cd was-a-mistake
 cd react-node
 cd auth-back
@@ -18,7 +20,6 @@ npm install
 ```
 
 ```bash
-git clone https://github.com/J22Pregbaha/was-a-mistake.git
 cd was-a-mistake
 cd react-node
 cd auth-front
@@ -26,7 +27,6 @@ npm install
 ```
 
 ```bash
-git clone https://github.com/J22Pregbaha/was-a-mistake.git
 cd was-a-mistake
 cd react-node
 cd mail-node
@@ -45,5 +45,3 @@ It is important to note that auth-back is set to run on port 8000 while auth-fro
 
 * ReactJS
 * Node.js
-
-## Features
