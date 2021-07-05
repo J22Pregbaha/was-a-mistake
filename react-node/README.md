@@ -2,6 +2,7 @@
 
 * [General Setup info](#general-setup-info)
 * [Technologies](#technologies)
+* [To do](#to-do)
 
 ## General info
 
@@ -45,3 +46,7 @@ It is important to note that auth-back is set to run on port 8000 while auth-fro
 
 * ReactJS
 * Node.js
+
+## To do
+
+* [ ] Make e-mail unique i.e. users can use e-mail to sign up only once
