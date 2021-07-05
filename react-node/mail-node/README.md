@@ -4,6 +4,7 @@
 * [Setup info](#setup-info)
 * [Technologies](#technologies)
 * [Status](#status)
+* [To do](#to-do)
 
 ## General info
 
@@ -29,3 +30,7 @@ Make sure you allow third party apps to send mails with you chosen email address
 ## Status
 
 Finished but I'm opening to suggestions on improvements.
+
+## To do
+
+* [ ] Check why mails go to spam folder.

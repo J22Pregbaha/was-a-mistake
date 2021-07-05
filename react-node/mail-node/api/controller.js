@@ -28,7 +28,7 @@ var controllers = {
 		});
 
 		var mailOptions = {
-			from: 'Authorization platform <esiwesportal@covenantuniversity.edu.ng>',
+			from: 'My Crow <noreply@covenantuniversity.edu.ng>',
 			to: receipient,
 			subject: subject,
 			text: text
