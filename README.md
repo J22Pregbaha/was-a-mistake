@@ -9,3 +9,32 @@ This project is an authentication web application that allows users to sign up a
 ## Status
 
 In progress
+
+## Structure
+
+```yaml
+.
+├── react-node                 # Contains the web app with the microservice architecture built with ReactJS and NodeJS
+│   ├── auth-back              # The microservice for signing up and signing in
+│   │   ├── api                # Folder containing the controller and the routes
+│   │   ├── myauthdb.sql       # File containing the database  
+│   │   ├── README.md          # Setup and general information
+│   │   ├── server.js          # JS file to setup server (app starting point)
+│   │   └── ...                # Other files...
+│   ├── auth-front             # The microservice for signing up and signing in
+│   │   ├── public             # Folder containing the static files
+│   │   ├── src                # Folder containing the main JS files
+│   │   │   ├── components     # Folder containing the front-end components
+│   │   │   ├── index.js       # Starting point
+│   │   │   ├── setupProxy.js  # File containing the proxies for the microservices
+│   │   │   └── ...            # Other files...
+│   │   ├── README.md          # Setup and general information
+│   │   └── ...                # Other files...
+│   ├── mail-node              # The microservice for sending mails
+│   │   ├── api                # Folder containing the controller and the routes  
+│   │   ├── README.md          # Setup and general information
+│   │   ├── server.js          # JS file to setup server (app starting point)
+│   │   └── ...                # Other files...
+│   └── README.md
+└── README.md         
+```

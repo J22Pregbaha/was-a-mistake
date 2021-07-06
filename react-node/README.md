@@ -1,8 +1,14 @@
 # Table of contents
 
+* [Prerequisites](#prerequisites)
 * [General Setup info](#general-setup-info)
 * [Technologies](#technologies)
 * [To do](#to-do)
+
+## Prerequisites
+
+* Install Node.js and npm from [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
+* Install MySQL Community Server from [https://dev.mysql.com/downloads/mysql/](https://dev.mysql.com/downloads/mysql/) and ensure it is started. Installation instructions are available at [https://dev.mysql.com/doc/refman/8.0/en/installing.html](https://dev.mysql.com/doc/refman/8.0/en/installing.html).
 
 ## General info
 
