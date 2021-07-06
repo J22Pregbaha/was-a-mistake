@@ -5,4 +5,5 @@ module.exports = (app) => {
 	app.route("/auth/about").get(controller.about);
 	app.route("/auth/signUp").post(controller.signUp);
 	app.route("/auth/confirmEmail/:userId/:encryptedKey").get(controller.confirmEmail);
+	app.route("/auth/signIn").post(controller.signIn);
 }

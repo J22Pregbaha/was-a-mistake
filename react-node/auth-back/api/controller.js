@@ -1,7 +1,9 @@
 const properties = require("../package.json");
-const Cryptr = require('cryptr');
-const cryptr = new Cryptr('myTotalySecretKey');
-const bcrypt = require('bcrypt');
+const Cryptr = require("cryptr");
+const cryptr = new Cryptr("myTotalySecretKey");
+const jwt = require("jsonwebtoken");
+const tokenSecret = process.env.SECRET;
+const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const mysql = require("mysql");
 
@@ -47,7 +49,7 @@ var controllers = {
 				} else {
 					console.log(result);
 					result.encrypted_key = encrypted_key;
-					res.status(202).json(result);
+					res.status(200).json(result);
 				}
 			});
 		});
@@ -65,7 +67,7 @@ var controllers = {
 				if (result[0]["COUNT(*)"] == 0) {
 					authorizeUser();
 				} else {
-					res.send(`Mail has already been verified`);
+					res.status(403).json({error: "Mail has already been verified"});
 				}
 			}
 		});
@@ -84,11 +86,40 @@ var controllers = {
 							res.json(err);
 						} else {
 							console.log(result);
-							res.status(202).json(result);
+							res.status(200).json(result);
 						}
 					});
 				}
 			});
+		}
+	},
+	signIn: (req, res) => {
+		const email = req.body.email;
+		const plainPassword = req.body.password;
+
+		var sql = `SELECT * FROM authorized_users WHERE (email="${email}" AND status=1)`;
+		con.query(sql, (err, result) => {
+			if(err) {
+				res.send("Error:"+err);
+			} else {
+				const hash = result[0].password;
+				console.log(result[0]);
+				bcrypt.compare(plainPassword, hash, (err, isMatch) => {
+					if (err) {
+						res.status(500).json({error: err});
+					} else {
+						if (isMatch) {
+							res.status(200).json({token: generateToken(result[0])});
+						} else {
+							res.status(403).json({error: "Did not match"});
+						}
+					}
+				});
+			}
+		});
+
+		function generateToken(user) {
+			return jwt.sign({data: user}, tokenSecret, {expiresIn: "31d"});
 		}
 	}
 };

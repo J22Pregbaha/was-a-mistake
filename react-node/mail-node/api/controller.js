@@ -28,7 +28,7 @@ var controllers = {
 		});
 
 		var mailOptions = {
-			from: 'My Crow <noreply@covenantuniversity.edu.ng>',
+			from: `My Crow <${process.env.EMAIL}>`,
 			to: receipient,
 			subject: subject,
 			text: text
@@ -39,7 +39,7 @@ var controllers = {
 				console.log(error);
 			} else {
 				console.log('Email sent: ' + info.response);
-				res.status(202).json(info);
+				res.status(200).json(info);
 			}
 		});
 	}

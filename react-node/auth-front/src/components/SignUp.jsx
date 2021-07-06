@@ -7,7 +7,6 @@ function SignUp(props) {
 	const [fullName, setFullName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const [isAuthor, setIsAuthor] = useState(false);
 	const [submitted, setSubmitted] = useState(false);
 	const [responseMessage, setResponseMessage] = useState("");
 
@@ -65,14 +64,6 @@ function SignUp(props) {
 							onChange={(e) => setPassword(e.target.value)}
 							value={password} />
 						<label htmlFor="floatingPassword">Password</label>
-					</div>
-					<div className="checkbox mb-3">
-						<label>
-							<input 
-								type="checkbox"
-								onChange={() => setIsAuthor(!isAuthor)}
-								checked={isAuthor} /> Register as an author
-						</label>
 					</div>
 					<Link to="/sign-in">Sign In</Link>
 					<button className="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>

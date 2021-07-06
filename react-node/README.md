@@ -36,6 +36,13 @@ npm install
 ```bash
 cd was-a-mistake
 cd react-node
+cd content
+npm install
+```
+
+```bash
+cd was-a-mistake
+cd react-node
 cd mail-node
 npm install
 ```
@@ -46,7 +53,7 @@ You can start each of them with the command below:
 npm start
 ```
 
-It is important to note that auth-back is set to run on port 8000 while auth-front is set to run on port 3000 and mail-node is set to run on port 8080
+It is important to note that auth-back is set to run on port 8000, auth-front is set to run on port 3000, content is set to run on port 8001 and mail-node is set to run on port 8080
 
 ## Technologies
 

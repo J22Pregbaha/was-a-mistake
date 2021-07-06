@@ -30,6 +30,12 @@ In progress
 │   │   │   └── ...            # Other files...
 │   │   ├── README.md          # Setup and general information
 │   │   └── ...                # Other files...
+│   ├── content                # The microservice for the content of the web app
+│   │   ├── api                # Folder containing the controller and the routes  
+│   │   ├── README.md          # Setup and general information
+│   │   ├── middleware.js      # JS file to check if user is logged in
+│   │   ├── server.js          # JS file to setup server (app starting point)
+│   │   └── ...                # Other files...
 │   ├── mail-node              # The microservice for sending mails
 │   │   ├── api                # Folder containing the controller and the routes  
 │   │   ├── README.md          # Setup and general information

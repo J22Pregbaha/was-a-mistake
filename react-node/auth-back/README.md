@@ -9,7 +9,7 @@
 
 This is the mircroservice setup to send the confirmation mail (or any other mail the system may need).
 
-The email and password are included in the environmental variables file which isn't available for security reasons.
+The database configurations and secret key are included in the environmental variables file which isn't available for security reasons.
 
 ## Setup info
 
@@ -20,6 +20,7 @@ DB_HOST=your_db_host
 DB_USERNAME=your_db_username
 DB_PASSWORD=your_db_password
 DB_NAME=myAuthDb
+SECRET=your_secret_key
 ```
 
 The db name is myAuthDb because that's what I named mine and that is what is in the sql file included in this folder. The sql file contains the db I created for the microservice.
@@ -30,4 +31,4 @@ The db name is myAuthDb because that's what I named mine and that is what is in 
 
 ## Status
 
-In progess
+Finished but I'm opening to suggestions on improvements.

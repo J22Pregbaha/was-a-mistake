@@ -29,8 +29,9 @@ Make sure you allow third party apps to send mails with you chosen email address
 
 ## Status
 
-Finished but I'm opening to suggestions on improvements.
+Finished (apart from the to do list for extra functionality) but I'm opening to suggestions on improvements.
 
 ## To do
 
 * [ ] Check why mails go to spam folder.
+* [ ] Add secret key.
