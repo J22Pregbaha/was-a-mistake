@@ -3,7 +3,7 @@
 * [Prerequisites](#prerequisites)
 * [General Setup info](#general-setup-info)
 * [Technologies](#technologies)
-* [To do](#to-do)
+* [Status](#status)
 
 ## Prerequisites
 
@@ -60,6 +60,6 @@ It is important to note that auth-back is set to run on port 8000, auth-front is
 * ReactJS
 * Node.js
 
-## To do
+## Status
 
-* [ ] Make e-mail unique i.e. users can use e-mail to sign up only once
+Done. Except, of course, the UI/UX

@@ -25,4 +25,4 @@ SECRET=your_secret_key
 
 ## Status
 
-In progess
+Done.

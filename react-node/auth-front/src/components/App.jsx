@@ -1,19 +1,24 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Cookies from 'universal-cookie';
 
 import SignUp from "./SignUp";
 import SignIn from "./SignIn";
 import ConfirmMail from "./ConfirmMail";
 import ConfirmedEmail from "./ConfirmedEmail";
+import Home from "./Home";
+import Unauthorized from "./Unauthorized";
 
 function App() {
+	const cookies = new Cookies();
+
 	useEffect(() => {
 		fetch("/mail/about")
 			.then(res => res.json())
 			.then(result => console.log(result));
 	}, []);
 
-	const signUp = async (fullName, email, password) => {
+	async function signUp(fullName, email, password) {
 		console.log(`Send Email to ${email}`);
 
 		const signUpPostRequestOptions = {
@@ -60,6 +65,9 @@ function App() {
 					</Route>
 					<Route path="/confirmEmail/:userId/:encryptedKey">
 						<ConfirmedEmail />
+					</Route>
+					<Route path="/home">
+						{cookies.get('token') ? <Home token={cookies.get('token')} /> : <Unauthorized />}
 					</Route>
 				</Switch>
 			</div>

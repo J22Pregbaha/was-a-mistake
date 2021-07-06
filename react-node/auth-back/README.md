@@ -4,6 +4,7 @@
 * [Setup info](#setup-info)
 * [Technologies](#technologies)
 * [Status](#status)
+* [To do](#to-do)
 
 ## General info
 
@@ -32,3 +33,8 @@ The db name is myAuthDb because that's what I named mine and that is what is in 
 ## Status
 
 Finished but I'm opening to suggestions on improvements.
+
+## To do
+
+* [ ] Make e-mail unique i.e. users can use e-mail to sign up only once
+* [ ] Don't let user login until credentials are correct

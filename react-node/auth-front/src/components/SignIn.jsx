@@ -1,14 +1,56 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
+import Cookies from 'universal-cookie';
+
+import Alert from "./Alert";
 
 function SignIn() {
+	let history = useHistory();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [submitted, setSubmitted] = useState(false);
+    const [responseMessage, setResponseMessage] = useState("");
+	const cookies = new Cookies();
+
+	async function signIn(email, password) {
+		const requestOptions = {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({
+				email: email,
+				password: password
+			})
+		};
+		const response = await fetch("/auth/signIn", requestOptions);
+		const data = await response.json();
+		cookies.set('token', data.token, { path: '/' });
+		
+		history.push("/home");
+	}
+
+    function resetForm() {
+		email === "" && password === ""
+			? setResponseMessage("Please fill all entries")
+			: email === ""
+			? setResponseMessage("Please provide your email address")
+			: password === ""
+			? setResponseMessage("Please provide your password")
+			: signIn(email, password);
+
+		email !== "" && password !== "" && setSubmitted(true);
+	}
 
 	return (
         <div className="text-center">
             <main className="form-signin">
-                <form>
+                {responseMessage !== "" && <Alert type="warning" output={responseMessage} />}
+                <form 
+					method="post"
+					onSubmit={(e) => {
+						e.preventDefault();
+
+						resetForm();
+					}}>
                     <img className="mb-4" src="/logo192.png" alt="" width="72" height="57" />
                     <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
 
@@ -35,6 +77,7 @@ function SignIn() {
                     <p className="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
                 </form>
             </main>
+            {submitted && <Redirect to="/home" />}
         </div>
 	);
 }
