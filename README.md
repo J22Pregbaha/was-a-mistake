@@ -21,7 +21,7 @@ In progress
 │   │   ├── README.md          # Setup and general information
 │   │   ├── server.js          # JS file to setup server (app starting point)
 │   │   └── ...                # Other files...
-│   ├── auth-front             # The microservice for signing up and signing in
+│   ├── auth-front             # The microservice for the frontend
 │   │   ├── public             # Folder containing the static files
 │   │   ├── src                # Folder containing the main JS files
 │   │   │   ├── components     # Folder containing the front-end components
@@ -41,6 +41,11 @@ In progress
 │   │   ├── README.md          # Setup and general information
 │   │   ├── server.js          # JS file to setup server (app starting point)
 │   │   └── ...                # Other files...
+│   └── README.md
+├── react-node                 # Contains the web app with the microservice architecture built with ReactJS and NodeJS
+│   ├── flask-back             # The microservice for signing up and signing in
+│   ├── auth-vue               # The microservice for the frontend
+│   ├── flask-mail             # The microservice for sending mails
 │   └── README.md
 └── README.md         
 ```
