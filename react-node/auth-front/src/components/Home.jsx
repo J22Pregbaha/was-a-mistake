@@ -1,11 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import Cookies from 'universal-cookie';
 
 function Home(props) {
 	let history = useHistory();
 	const cookies = new Cookies();
-	const [user, setUser] = useState({});
+
+	console.log(props);
+
+	if (!cookies.get('token')) {
+		history.push("/");
+	}
 
 	useEffect(() => {
 		getHome();
@@ -20,7 +25,6 @@ function Home(props) {
 		const response = await fetch("/content/home", {headers: myHeaders});
 		const data = await response.json();
 		console.log(data);
-		setUser(() => data);
 	}
 
 	function logout() {
@@ -30,7 +34,7 @@ function Home(props) {
 
 	return (
 		<div className="text-center">
-			<h1>Hello World! Welcome Home {user.name}.</h1>
+			<h1>Hello World! Welcome Home.</h1>
 			<button onClick={logout}>Logout</button>
 		</div>
 	);

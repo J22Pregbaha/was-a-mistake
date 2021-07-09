@@ -1,14 +1,21 @@
 import React, { useState } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
+import Cookies from 'universal-cookie';
 
 import Alert from "./Alert";
 
 function SignUp(props) {
+	let history = useHistory();
 	const [fullName, setFullName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [submitted, setSubmitted] = useState(false);
 	const [responseMessage, setResponseMessage] = useState("");
+	const cookies = new Cookies();
+
+	if (cookies.get('token')) {
+		history.push("/home");
+	}
 
 	function resetForm() {
 		fullName === "" && email === "" && password === ""

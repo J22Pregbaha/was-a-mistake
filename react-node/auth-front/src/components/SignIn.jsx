@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Redirect, useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Cookies from 'universal-cookie';
 
 import Alert from "./Alert";
@@ -8,9 +8,12 @@ function SignIn() {
 	let history = useHistory();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [submitted, setSubmitted] = useState(false);
     const [responseMessage, setResponseMessage] = useState("");
 	const cookies = new Cookies();
+
+	if (cookies.get('token')) {
+		history.push("/home");
+	}
 
 	async function signIn(email, password) {
 		const requestOptions = {
@@ -25,7 +28,8 @@ function SignIn() {
 		const data = await response.json();
 		cookies.set('token', data.token, { path: '/' });
 		
-		history.push("/home");
+		// setTimeout(() => history.push("/home"), 1000);
+		history.push("/home")
 	}
 
     function resetForm() {
@@ -36,8 +40,6 @@ function SignIn() {
 			: password === ""
 			? setResponseMessage("Please provide your password")
 			: signIn(email, password);
-
-		email !== "" && password !== "" && setSubmitted(true);
 	}
 
 	return (
@@ -77,7 +79,6 @@ function SignIn() {
                     <p className="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
                 </form>
             </main>
-            {submitted && <Redirect to="/home" />}
         </div>
 	);
 }

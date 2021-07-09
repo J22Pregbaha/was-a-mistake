@@ -7,7 +7,6 @@ import SignIn from "./SignIn";
 import ConfirmMail from "./ConfirmMail";
 import ConfirmedEmail from "./ConfirmedEmail";
 import Home from "./Home";
-import Unauthorized from "./Unauthorized";
 
 function App() {
 	const cookies = new Cookies();
@@ -67,7 +66,7 @@ function App() {
 						<ConfirmedEmail />
 					</Route>
 					<Route path="/home">
-						{cookies.get('token') ? <Home token={cookies.get('token')} /> : <Unauthorized />}
+						<Home token={cookies.get('token')} />
 					</Route>
 				</Switch>
 			</div>
