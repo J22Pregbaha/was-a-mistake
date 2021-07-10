@@ -43,8 +43,18 @@ In progress
 │   │   └── ...                # Other files...
 │   └── README.md
 ├── react-node                 # Contains the web app with the microservice architecture built with ReactJS and NodeJS
-│   ├── flask-back             # The microservice for signing up and signing in
 │   ├── auth-vue               # The microservice for the frontend
+│   │   ├── public             # Folder containing the static files
+│   │   ├── src                # Folder containing the main JS files
+│   │   │   ├── assets         # Folder containing other static files
+│   │   │   ├── components     # Folder containing the front-end components
+│   │   │   ├── router         # Folder containing the file that handles all the routes
+│   │   │   ├── views          # Folder containing the views for the different pages
+│   │   │   ├── App.vue        # Main vue file
+│   │   │   └── main.js        # Starting point
+│   │   ├── README.md          # Setup and general information
+│   │   └── ...                # Other files...
+│   ├── flask-back             # The microservice for signing up and signing in
 │   ├── flask-mail             # The microservice for sending mails
 │   └── README.md
 └── README.md         
