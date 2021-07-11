@@ -8,6 +8,8 @@
 					<input 
 						type="email" 
 						class="form-control" 
+						name="email"
+						v-model="email"
 						id="floatingInput" />
 					<label for="floatingInput">Email address</label>
 				</div>
@@ -15,6 +17,8 @@
 					<input 
 						type="password" 
 						class="form-control" 
+						name="password"
+						v-model="password"
 						id="floatingPassword" />
 					<label for="floatingPassword">Password</label>
 				</div>
@@ -25,3 +29,19 @@
 		</main>
 	</div>
 </template>
+
+<script>
+export default {
+	data() {
+		return {
+			email: '',
+			password: ''
+		}
+	},
+	methods: {
+		doSomething: function() {
+			console.log(this.email, this.password);
+		}
+	}
+}
+</script>
