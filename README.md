@@ -42,7 +42,7 @@ In progress
 │   │   ├── server.js          # JS file to setup server (app starting point)
 │   │   └── ...                # Other files...
 │   └── README.md
-├── react-node                 # Contains the web app with the microservice architecture built with ReactJS and NodeJS
+├── vue-flask                  # Contains the web app with the microservice architecture built with ReactJS and NodeJS
 │   ├── auth-vue               # The microservice for the frontend
 │   │   ├── public             # Folder containing the static files
 │   │   ├── src                # Folder containing the main JS files
