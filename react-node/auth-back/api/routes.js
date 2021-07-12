@@ -1,9 +1,9 @@
 const controller = require("./controller");
 
 module.exports = (app) => {
-	app.route("/auth").get(controller.home);
-	app.route("/auth/about").get(controller.about);
-	app.route("/auth/signUp").post(controller.signUp);
-	app.route("/auth/confirmEmail/:userId/:encryptedKey").get(controller.confirmEmail);
-	app.route("/auth/signIn").post(controller.signIn);
+	app.route("/").get(controller.home);
+	app.route("/about").get(controller.about);
+	app.route("/signUp").post(controller.signUp);
+	app.route("/confirmEmail/:userId/:encryptedKey").get(controller.confirmEmail);
+	app.route("/signIn").post(controller.signIn);
 }
