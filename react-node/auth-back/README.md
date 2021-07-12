@@ -26,6 +26,12 @@ SECRET=your_secret_key
 
 The db name is myAuthDb because that's what I named mine and that is what is in the sql file included in this folder. The sql file contains the db I created for the microservice.
 
+Then run the following command:
+
+```bash
+npm start
+```
+
 ## Technologies
 
 * Node.js

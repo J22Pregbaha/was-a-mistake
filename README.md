@@ -56,6 +56,9 @@ In progress
 │   │   └── ...                # Other files...
 │   ├── flask-back             # The microservice for signing up and signing in
 │   ├── flask-mail             # The microservice for sending mails
+│   │   ├── main.py            # Main python script that sends the mail
+│   │   ├── README.md          # Setup and general information
+│   │   └── ...                # Other files...
 │   └── README.md
 └── README.md         
 ```

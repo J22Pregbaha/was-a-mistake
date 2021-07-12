@@ -19,6 +19,12 @@ After installing the node_modules, all you need do is store the environmental va
 SECRET=your_secret_key
 ```
 
+Then run the following command:
+
+```bash
+npm start
+```
+
 ## Technologies
 
 * Node.js

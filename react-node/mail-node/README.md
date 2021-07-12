@@ -23,6 +23,12 @@ EMAIL_PASS=your_email_password
 
 Make sure you allow third party apps to send mails with you chosen email address.
 
+Then run the following command:
+
+```bash
+npm start
+```
+
 ## Technologies
 
 * Node.js
