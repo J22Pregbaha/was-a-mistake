@@ -19,7 +19,7 @@ module.exports = function(app) {
         target: "http://localhost:8001",
         changeOrigin:true,
         pathRewrite:{
-            '^/auth': ''
+            '^/content': ''
         }
     }));
 }
