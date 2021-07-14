@@ -16,7 +16,7 @@ virtualenv venv
 # Activate virtualenv for Windows
 venv\Scripts\activate
 #Install Flask and other dependencies on the enviroment
-pip install flask Flask-mail python-dotenv
+pip install flask python-dotenv flask-jwt-extended
 ```
 
 This only needs to be done the first time. The only action that will be repeated subsequently is the activation of the virtual environment and running the flask app.
@@ -27,8 +27,8 @@ After downloading the packages, all you need do is store the environmental varia
 DEBUG=True
 FLASK_ENV=development
 FLASK_APP=main.py
-MAIL_USERNAME=your_email_address
-MAIL_PASSWORD=your_email_password
+
+SECRET=your_secret_key
 ```
 
 Then you can run the application

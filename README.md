@@ -16,8 +16,7 @@ In progress
 .
 ├── react-node                 # Contains the web app with the microservice architecture built with ReactJS and NodeJS
 │   ├── auth-back              # The microservice for signing up and signing in
-│   │   ├── api                # Folder containing the controller and the routes
-│   │   ├── myauthdb.sql       # File containing the database  
+│   │   ├── api                # Folder containing the controller and the routes 
 │   │   ├── README.md          # Setup and general information
 │   │   ├── server.js          # JS file to setup server (app starting point)
 │   │   └── ...                # Other files...
@@ -60,5 +59,6 @@ In progress
 │   │   ├── README.md          # Setup and general information
 │   │   └── ...                # Other files...
 │   └── README.md
+├── myauthdb.sql               # File containing the database
 └── README.md         
 ```

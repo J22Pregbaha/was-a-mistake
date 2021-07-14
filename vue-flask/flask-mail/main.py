@@ -1,6 +1,5 @@
 import os
-from flask import Flask, request
-from flask import jsonify
+from flask import Flask, request, jsonify
 from flask_mail import Mail, Message
 
 app = Flask(__name__)
@@ -23,4 +22,4 @@ def index():
     return jsonify({ 'title': title, 'text': text, 'result': 'Sent' })
 
 if __name__ == '__main__':
-    app.run(debug == True)
+    app.run()
