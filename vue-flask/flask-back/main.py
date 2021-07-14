@@ -29,8 +29,14 @@ def index():
 
 @app.route('/login', methods=['POST'])
 def login():
-    email = request.form['email']
-    password = request.form['password']
+    # Apparently flask receives form input that comes in a json quite literally so the if/elif block accounts for that and for normal input
+    if request.get_json():
+        formData = request.get_json()
+        email = formData['email']
+        password = formData['password']
+    elif request.form:
+        email = request.form['email']
+        password = request.form['password']
     cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cur.execute(f'SELECT * FROM authorized_users WHERE (email="{email}" AND status=1)')
     account = cur.fetchone()

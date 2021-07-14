@@ -14,9 +14,11 @@ import HelloWorld from '@/components/HelloWorld.vue'
 export default {
   name: 'Home',
   created() {
-    fetch("/mail")
+    /* fetch("/mail")
 			.then(res => res.json())
-			.then(result => console.log(result.name));
+			.then(result => console.log(result.name)); */
+    
+    console.log("Token:", this.$cookies.get("token"));
   },
   data() {
 		return {

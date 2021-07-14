@@ -1,8 +1,7 @@
 <template>
 	<div class="text-center">
 		<main class="form-signin">
-			<form 
-				@submit.prevent="doSomething">
+			<form @submit.prevent="doSomething">
 				<img class="mb-4" src="../assets/logo.png" alt="" width="72" height="57" />
 				<h1 class="h3 mb-3 fw-normal">Please sign up</h1>
 

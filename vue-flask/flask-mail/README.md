@@ -35,7 +35,7 @@ Then you can run the application
 
 ```bash
 #Run the application
-flask run
+flask run -h localhost -p 3000 # I'm using port 3000 so it doesn't clash with the other flask projects
 ```
 
 ## Technologies

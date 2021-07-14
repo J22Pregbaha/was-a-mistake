@@ -1,7 +1,7 @@
 <template>
 	<div class="text-center">
 		<main class="form-signin">
-			<form>
+			<form @submit.prevent="signIn">
 				<img class="mb-4" src="../assets/logo.png" alt="" width="72" height="57" />
 				<h1 class="h3 mb-3 fw-normal">Please sign In</h1>
 				<div class="form-floating">
@@ -39,8 +39,22 @@ export default {
 		}
 	},
 	methods: {
-		doSomething: function() {
+		signIn: async function() {
 			console.log(this.email, this.password);
+			const requestOptions = {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					email: this.email,
+					password: this.password
+				})
+			};
+			const response = await fetch("/auth/login", requestOptions);
+			const data = await response.json();
+			this.$cookies.set("token", data.access_token, "31d");
+			this.$cookies.set("user", data.account_dets, "31d");
+			console.log(data);
+			this.$router.push("/")
 		}
 	}
 }
